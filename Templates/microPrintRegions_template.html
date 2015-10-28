@@ -1,0 +1,294 @@
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="pageHeaderIcon"><img src="./Content/img/icon_microprint.png" /></span> {{title}}
+            </div>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form class="form-horizontal" id="MicroPrintRegionsForm" method="post" role="form">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>General Settings</span>
+                            {{#if editAttribute}}
+                            <span class="btnEdit"><a id="EditImageRegions" class="btn btn-default" href="#EditMicroPrintRegions/{{id}}">Edit</a></span>
+                            {{else}}
+                            <span class="btnEdit"><a class="btn btn-default" href="#ListMicroPrintRegions">Cancel</a></span>
+                            {{/if}}
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" errorName="Name" name="name" id="name" value='{{name}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" errorName="Description" name="description" id="description" value='{{description}}'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+					
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>Text String</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal"> 
+										<div id="Strings" name="Strings" class="query-builder form-inline btn col-lg-12 container"></div>
+									
+				
+								<div class="col-lg-10 container margin-top-5px">
+                            <div class="col-lg-12">
+                                <span class="balloon-info">
+
+                                    <button id="addString" type="button" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-plus-sign"></span> Add String
+                                    </button>
+                                </span>
+                            </div>
+
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>Positioning and Layout</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="col-md-12">
+                                    <label>Layout</label>
+                                </div>
+
+                                <div class="col-md-12 positioningContainer">
+                                    <label>Positioning</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group col-md-12 form-inline coordContainer">
+                                        <label class="col-md-3 col-md-offset-1 control-label coordSubLabel">Upper Left</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="coordBox form-control" errorName="Top Left X" name="topLeft.X" id="topLeft.X" value='{{topLeft.x}}'>
+                                            <label class=" coordLabel"> X </label>
+                                            <input type="text" class="coordBox form-control" errorName="Top Left Y" name="topLeft.Y" id="topLeft.Y" value='{{topLeft.y}}'>
+                                            <label class=" coordLabel"> Y </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label coordSubLabel">Lower Right</label>
+                                        <div class="col-md-8  form-inline">
+                                            <input type="text" class="coordBox form-control" errorName="Bottom Right X" name="bottomRight.X" id="bottomRight.X" value='{{bottomRight.x}}'>
+                                            <label class=" coordLabel"> X </label>
+                                            <input type="text" class="coordBox form-control" errorName="Bottom Right Y" name="bottomRight.Y" id="bottomRight.Y" value='{{bottomRight.y}}'>
+                                            <label class=" coordLabel"> Y </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 coordFooterLabelContainer">
+                                        <label class="coordFooterLabel" id="units">(coordinates in {{units}})</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="./Content/img/icon_region_big.png" />
+                                </div>
+                                
+                                <div class="col-md-12 positioningContainer">
+                                    <label>Padding and Margin</label>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Left/Right Padding</label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" errorname="Padding" name="padding" id="padding"></input>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Bottom Margin</label>
+                                    <div class="col-md-4">
+                                        <input class="form-control" errorname="Margin" name="margin" id="margin"></input>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="col-md-12 positioningContainer">
+                                    <label>Text Format</label>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Font</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" errorName="Font Name" name="textSettings.fontName" id="textSettings.fontName">
+                                           	 {{#each drop.fonts}}
+                                            <option value={{value}}>{{text}}</option>                   
+										{{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Color</label>
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <input type="text" value="" errorName="Font Color" name="textSettings.fontColor" id="textSettings.fontColor" class="form-control" />
+                                            <span class="input-group-addon" name="colorpick1" id="colorPick1"><i></i></span>
+                                        </div>
+
+                                        <script>
+                                            $(function () {
+                                                $('#textSettings\\.fontColor').colorpicker();
+                                            });
+
+                                            $('#textSettings\\.fontColor').focusout(function () {
+                                                var color1 = $('#textSettings\\.fontColor').val();
+                                                $("#colorPick1").css("background-color", color1);
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Size</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" errorName="Font Size" name="textSettings.fontSize" id="textSettings.fontSize">
+                                           {{#each drop.fontSize}}
+                                            <option value={{value}}>{{text}}</option>                   
+										{{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Transform</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" errorName="textSettings.transform" name="textSettings.transform" id="textSettings.transform">
+                                            <option value="0">None</option>
+                                            <option value="1">To Upper</option>
+                                            <option value="2">To Lower</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>MicroPrint Tag</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                       
+                                <div class="form-group col-md-12">
+                                    <label class="col-md-3 col-md-offset-1 control-label subLabel">Include Tag</label>
+                                    <div class="col-md-4">
+                                        <select class="form-control" errorname="Padding" name="tag.includeTag" id="tag.includeTag">
+                                            <option value="0">No</option>
+                                            <option value="1">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div id="mpTagInfo">
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label subLabel">Tag Text</label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" errorname="Description" name="tag.text" id="tag.text" value='{{tag.text}}'>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label subLabel">Tag Font</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control" errorname="Font Name" name="tag.textSettings.fontName" id="tag.textSettings.fontName">
+                                               	 {{#each drop.fonts}}
+                                            <option value="{{value}}">{{text}}</option>                   
+										{{/each}}
+                                            </select>
+                                        </div>
+                                    </div>      
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label subLabel">Size</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control" errorname="Font Size" name="tag.textSettings.fontSize" id="tag.textSettings.fontSize">
+                                                {{#each drop.fontSize}}
+                                            <option value={{value}}>{{text}}</option>                   
+										{{/each}}
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label subLabel">Location</label>
+                                        <div class="col-md-4">
+                                            <select class="form-control" errorname="Padding" name="tag.location" id="tag.location">
+                                                <option value="1">Left</option>
+                                                <option value="2">Right</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="errorPanel"></div>
+                    <div><button type="button" id="MicroPrintRegionsSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2 verticalLine">
+        <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader">MicroPrint Regions</span><br />
+        <span class="helpText">
+            Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit, sed diam nonummy nibh
+            euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat. Ut wisi enim ad
+            minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip
+            ex ea commodo consequat.
+            Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit ese molestie
+            consequat, vel illum dolore eu feugiat nulla
+                       
+
+        </span>
+    </div>
+</div>
+
+<script type="text/javascript"> 
+    $("#includeTag").change(function () {
+        alert("Testing.. need to remove this.");
+        var blah = $(this).val();
+        if (blah == 0) {
+            $("#mpTagInfo").hide();
+        } else {
+            $("#mpTagInfo").show();
+        }
+    });        
+</script>

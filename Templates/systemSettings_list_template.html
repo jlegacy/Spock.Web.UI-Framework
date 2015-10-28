@@ -1,0 +1,111 @@
+
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="glyphicon glyphicon-cog pageHeaderIcon"></span> System Settings
+            </div>
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#AddLicenseSystemSettings"><span class="glyphicon glyphicon-plus-sign addButton"></span> Add License</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form id="ImageRegionsForm" method="post" role="form">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>License Information</span>
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Type of License: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="name" value='{{typeOfLicense}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Version #: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{version}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">License Renews: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{expirationDate}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Number of Licenses: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{numberOfLicenses}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Number in Use: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{numberOfLicensesInUse}}'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>Global Settings</span>
+                            <span class="btnEdit"><a id="EditLanguageSystemSettings" class="btn btn-default" href="#EditLanguageSystemSettings">Edit</a></span> 
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Language: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{language}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Units: </label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="description" value='{{units}}'>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-2 verticalLine">
+        <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader"> System Settings</span><br />
+        <span class="helpText">
+            Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit, sed diam nonummy nibh
+            euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat. Ut wisi enim ad
+            minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip
+            ex ea commodo consequat.
+            Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit ese molestie
+            consequat, vel illum dolore eu feugiat nulla
+
+
+        </span>
+    </div>
+</div>

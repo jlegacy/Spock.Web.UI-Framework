@@ -1,0 +1,55 @@
+
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="pageHeaderIcon"><img src="./Content/img/icon_troymark.png" /></span> TROYMark Elements
+            </div>
+
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreateTroyMarkRegions"><span class="glyphicon glyphicon-plus-sign addButton"></span> Create TROYMark Element</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+                <table id="troyMarkRegionsListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr role="row">
+     
+                            <th class="sorting">Name</th>
+                            <th class="sorting">Description</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {{#each this}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{description}}</td>
+                            <td>
+                                <a id="EditTroyMarkRegions" href="#EditTroyMarkRegions/{{id}}">Edit</a> |
+                                <a id="DisplayTroyMarkRegions" href="#DisplayTroyMarkRegions/{{id}}">Details</a> |
+                                <a id="DeleteTroyMarkRegions" href="#DeleteTroyMarkRegions/{{id}}">Delete</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#troyMarkRegionsListTable').DataTable();
+    });
+</script> 
+

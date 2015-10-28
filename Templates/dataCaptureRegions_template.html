@@ -1,0 +1,130 @@
+
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="pageHeaderIcon"><img src="./Content/img/icon_captureregion.png" /></span> {{title}}
+            </div>
+        </div>
+        
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form class="form-horizontal" id="DataCaptureRegionsForm" method="post" role="form">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader">
+                            <span>General Settings</span>
+                            {{#if editAttribute}}
+                            <span class="btnEdit"><a id="EditDataCaptureRegions" class="btn btn-default" href="#EditDataCaptureRegions/{{id}}">Edit</a></span>
+                            {{else}}
+                            <span class="btnEdit"><a class="btn btn-default" href="#ListDataCaptureRegions">Cancel</a></span>
+                            {{/if}}
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Name</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" errorName="Name" name="name" id="name" value='{{name}}'>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile" class="col-sm-4 control-label">Description</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" errorName="Description" name="description" id="description" value='{{description}}'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading userPanelHeader"> 
+                            <span>Positioning and Layout</span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+
+                                <div class="col-md-12 positioningContainer">
+                                    <label>Positioning</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="form-group col-md-12 form-inline coordContainer">
+                                        <label class="col-md-3 col-md-offset-1 control-label coordSubLabel">Upper Left</label>
+                                        <div class="col-md-8">
+                                            <input type="text" class="coordBox form-control" errorName="Top Left X" name="topLeft.X" id="topLeft.X" value='{{topLeft.x}}'>
+                                            <label class=" coordLabel"> X </label>
+                                            <input type="text" class="coordBox form-control" errorName="Top Left Y" name="topLeft.Y" id="topLeft.Y" value='{{topLeft.y}}'>
+                                            <label class=" coordLabel"> Y </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="col-md-3 col-md-offset-1 control-label coordSubLabel">Lower Right</label>
+                                        <div class="col-md-8  form-inline">
+                                            <input type="text" class="coordBox form-control" errorName="Bottom Right X" name="bottomRight.X" id="bottomRight.X" value='{{bottomRight.x}}'>
+                                            <label class=" coordLabel"> X </label>
+                                            <input type="text" class="coordBox form-control" errorName="Bottom Right Y" name="bottomRight.Y" id="bottomRight.Y" value='{{bottomRight.y}}'>
+                                            <label class=" coordLabel"> Y </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 coordFooterLabelContainer">
+                                        <label class="coordFooterLabel" id="units">(coordinates in {{units}})</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="./Content/img/icon_region_big.png" />
+                                </div>
+
+                                <div class="col-md-12 positioningContainer">
+                                    <label>Data</label>
+                                </div>
+
+                                
+                                <div class="form-group col-md-12">
+                                    <label for="enabled" class="col-md-3 control-label subLabel">Hide Data</label>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="hideText" id="hideText">
+                                            <option value="true">True</option>
+                                            <option value="false">False</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="errorPanel"></div>
+                    <div><button type="button" id="DataCaptureRegionsSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+
+            <div class="col-md-2 verticalLine">
+                <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader">Print PrintTraceRegions</span><br />
+                <span class="helpText">
+                    Lorem ipsum dolor sit amet, consectetuer
+                    adipiscing elit, sed diam nonummy nibh
+                    euismod tincidunt ut laoreet dolore magna
+                    aliquam erat volutpat. Ut wisi enim ad
+                    minim veniam, quis nostrud exerci tation
+                    ullamcorper suscipit lobortis nisl ut aliquip
+                    ex ea commodo consequat.
+                    Duis autem vel eum iriure dolor in
+                    hendrerit in vulputate velit ese molestie
+                    consequat, vel illum dolore eu feugiat nulla
+
+
+                </span>
+            </div>
+        </div>

@@ -1,0 +1,19 @@
+ 	<li id="builder-basic_String_{{counter}}" data={{counter}} class="string-container row col-lg-12 text-left ">
+        <div class="col-sm-1"><div class="dragDropGraphic"></div></div>
+        <div class="btn-group String-actions col-lg-1" style="width:75px;">
+            <button name="DeleteString" type="button" class="btn margin-top-5px btn-xs btn-danger" data-delete="String"> <i class="glyphicon glyphicon-remove"></i> Delete </button>
+        </div>
+	
+        <div class="String-filter-container col-lg-3">
+            <select class="form-control fillDiv" id="stringTypes" name="type">
+                {{#each types}}
+                <option value="{{this.value}}">{{this.text}}</option>
+                {{/each}}
+            </select>
+        </div>
+
+        <div class="String-value-container col-lg-6">
+            <input autocomplete ="off" class="form-control fillDiv" name="textElements.text"> 
+        </div>
+	</li>
+

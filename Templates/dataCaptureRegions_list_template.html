@@ -1,0 +1,55 @@
+
+<div class="row nestedPage">
+    <div class="col-md-10">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="pageHeaderIcon"><img src="./Content/img/icon_captureregion.png" /></span> Data Capture Regions
+            </div>
+
+            <div class="col-md-12 addContainer">
+                <a class="btn btn-default" href="#CreateDataCaptureRegions"><span class="glyphicon glyphicon-plus-sign addButton"></span> Create Data Capture Region</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+
+                <table id="DataCaptureRegionsListTable" class="display cell-border" cellspacing="0" width="100%">
+                    <thead>
+                        <tr role="row">
+
+                            <th class="sorting">Name</th>
+                            <th class="sorting">Description</th>
+                            <th class="sorting_asc_disabled sorting_desc_disabled"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {{#each this}}
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{description}}</td>
+                            <td>
+                                <a id="EditDataCaptureRegions" href="#EditDataCaptureRegions/{{id}}">Edit</a> |
+                                <a id="DisplayDataCaptureRegions" href="#DisplayDataCaptureRegions/{{id}}">Details</a> |
+                                <a id="DeleteDataCaptureRegions" href="#DeleteDataCaptureRegions/{{id}}">Delete</a>
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#DataCaptureRegionsListTable').DataTable();
+    });
+</script> 
+

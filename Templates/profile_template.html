@@ -1,0 +1,287 @@
+<div class="row nestedPage">
+    <div class="col-md-5">
+
+        <div class="row pageHeader">
+            <div class="col-md-12">
+                <span class="pageHeaderIcon"><img src="./Content/img/icon_profile.png"/></span> {{title}}
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading userPanelHeader">
+                <span>General Profile Settings</span>
+				<input type="hidden" id="hiddenProfileId"></input> 
+                    <button type="button" id="editGeneralSettingsBtn" name="editGeneralSettingsBtnDiv" class="btn btn-default addElementButton" data-toggle="modal" data-target="#editGeneralSettings">
+                        Edit
+                    </button>
+            </div>
+            <!---->
+            <div class="panel-body">
+                <form id="ProfileForm" class="form-horizontal" method="post" role="form">
+                    <div style="display: none;" id="profileId">{{id}}</div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" errorname="Name" id="Name" name="name" placeholder="Enter Name" value={{name}}>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="form-group" name="modifiedDiv">
+                        <label class="col-sm-4 control-label">Modified</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="modified" errorName="Modified" name="modified" placeholder="Enter Last Name" value={{modified}}>
+                        </div>
+                    </div>-->
+
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Description</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="description" errorname="Description" name="description" placeholder="Enter Description" value={{description}}>
+                        </div>
+                    </div>
+
+                    <div id="errorPanel"></div>
+
+                    <div id="createProfileBtn" name="createProfileBtn"><button type="button" id="ProfileSubmit" class="btn btnKermit btnRight">{{buttonText}}</button></div>
+          
+
+                </form>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="panel panel-default" id="securityRegionsDiv">
+            <div class="panel-heading userPanelHeader">
+                <span>Security Regions</span>
+                <button type="button" id="addElementButton" class="btn btn-primary btn-sm addElementButton" data-toggle="modal" data-target="#addSecurityElement">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Add Security Element
+                </button>
+            </div>
+            <!---->
+            <div class="panel-body">
+              <div class="container" id="securityTableContainer">
+			 </div>
+			</div>
+        </div>
+
+
+        <br />
+
+        <div class="panel panel-default" id="printTraceRegionsDiv">
+            <div class="panel-heading userPanelHeader">
+                <span>Print Trace</span>
+                <button type="button" id="addElementButton" class="btn btn-primary btn-sm addElementButton" data-toggle="modal" data-target="#addPrintTraceElement">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Add Print Trace Element
+                </button>
+            </div>
+            <!---->
+            <div class="panel-body">
+                 <div class="container" id="printTraceTableContainer">
+			 </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default" id="exclusionRegionsDiv">
+            <div class="panel-heading userPanelHeader">
+                <span>Exclusion Regions</span>
+                <button type="button" id="addElementButton" class="btn btn-primary btn-sm addElementButton" data-toggle="modal" data-target="#addExclusionRegionElement">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Add Exclusion Region
+                </button>
+            </div>
+            <!---->
+            <div class="panel-body">
+               <div class="container" id="exclusionTableContainer">
+			 </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-2 verticalLine">
+        <span class="glyphicon glyphicon glyphicon-question-sign pageHelpIcon"></span> <span class="helpTextHeader">{{title}}</span><br />
+        <span class="helpText">
+            Lorem ipsum dolor sit amet, consectetuer
+            adipiscing elit, sed diam nonummy nibh
+            euismod tincidunt ut laoreet dolore magna
+            aliquam erat volutpat. Ut wisi enim ad
+            minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip
+            ex ea commodo consequat.
+            Duis autem vel eum iriure dolor in
+            hendrerit in vulputate velit esse molestie
+            consequat, vel illum dolore eu feugiat nulla
+
+
+        </span>
+    </div>
+</div>
+
+<div class="modal fade" id="addSecurityElement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Security Element</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="securityElementsForm" class="form">
+                        <br />
+                        <label class="subLabel">Security Element Type</label>
+                        <select class="form-control" name="securityElementType" id="securityElementType">
+                            <option value="0">TROYMark</option>
+                            <!--<option value="1">Pantograph</option>
+                            <option value="2">MicroPrint</option>-->
+                            <option value="3">Image</option>
+                            <option value="4">Textbox</option>
+                        </select>
+                        <br />
+                        <label class="subLabel">Select Element</label> 
+						<input type="hidden" id="profileId" name="profileId"></input>
+						<input type="hidden" id = "regionId" name="regionId"></input>
+                        <select class="form-control elementType" name="troyMarkRegions" id="troyMarkRegions"></select>
+                        <!-- <select class="form-control elementType" name="pantographRegions" id="pantographRegions"></select> -->
+                        <!-- <select class="form-control elementType" name="microprintRegion" id="microprintRegion"></select> -->
+                        <select class="form-control elementType" name="imageRegions" id="imageRegions"></select>
+                        <select class="form-control elementType" name="textBoxRegions" id="textBoxRegions"></select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="securityElementsFormSubmit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addPrintTraceElement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Print Trace Region</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="printTraceform" class="form">
+                            <br />
+                            <label class="subLabel">Select Element</label>
+						<input type="hidden" id="profileId" name="profileId"></input>
+						<input type="hidden" id = "regionId" name="regionId"></input>
+                        <select class="form-control" name="printTraceElement" id="printTraceElement">
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="printTraceFormSubmit" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addExclusionRegionElement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Exclusion Region</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="exclusionRegionForm" class="form">
+                        <br />
+                        <label class="subLabel">Select Region</label>
+						<input type="hidden" id="profileId" name="profileId"></input>
+						<input type="hidden" id = "regionId" name="regionId"></input>
+                        <select class="form-control" name="excludeElement" id="excludeElement">
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="exclusionRegionFormSubmit" type="button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editGeneralSettings" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Edit General Settings</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form id="ProfileForm" class="form-horizontal" method="post" role="form">
+                        <div style="display: none;" id="profileId">{{id}}</div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" errorname="Name" id="name" name="name" placeholder="Enter Name" value={{name}}>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Description</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="description" errorname="Description" name="description" placeholder="Enter Description" value={{description}}>
+                            </div>
+                        </div>
+
+                        <div id="errorPanel"></div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="saveGeneralSettings" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //intially hide select lists
+    $('#imageRegions').hide();
+    $('#textBoxRegions').hide();
+    //$('#pantographRegions').hide();
+    //$('#microprintRegion').hide();
+
+    $("#securityElementType").change(function () {
+        //hide all boxes
+        $('.elementType').hide();
+        //get type selected
+        var eType = $("#securityElementType option:selected").val();
+        //show type selected 
+        if (eType == 0) {
+            $("#troyMarkRegions").show();
+        }
+        if (eType == 1) {
+            $("#pantographRegions").show();
+        }
+        if (eType == 2) {
+            $('#microprintRegion').show();
+        }
+        if (eType == 3) {
+            $("#imageRegions").show();
+        }
+        if (eType == 4) {
+            $("#textBoxRegions").show();
+        }
+
+    });
+
+
+
+</script>
+
+
